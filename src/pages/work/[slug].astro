@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageShell from '../../components/layout/PageShell.astro';
+import '../../styles/case-study.css';
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'penti-mybra' } },
+    { params: { slug: 'puhutv' } },
+    { params: { slug: 'dogus-yayin-grubu' } }
+  ];
+}
+
+const { slug } = Astro.params;
+const isPenti = slug === 'penti-mybra';
+---
+
+<BaseLayout>
+  <PageShell>
+    <article class="case-study">
+      <section class="case-study__hero">
+        <p class="case-study__eyebrow">Case study / {isPenti ? 'Penti MyBra' : slug}</p>
+        <h1>{isPenti ? 'Penti MyBra' : slug}</h1>
+        <p style="margin-top: 1rem; max-width: 42rem;">A brand and digital launch built around clarity, confidence, and a more considered retail experience.</p>
+
+        <div class="case-study__meta">
+          <div class="case-study__meta-item">
+            <span>Category</span>
+            <p>Brand identity · Digital launch</p>
+          </div>
+          <div class="case-study__meta-item">
+            <span>Year</span>
+            <p>2024</p>
+          </div>
+          <div class="case-study__meta-item">
+            <span>Client</span>
+            <p>Penti MyBra</p>
+          </div>
+          <div class="case-study__meta-item">
+            <span>Role</span>
+            <p>Art direction · Brand design</p>
+          </div>
+        </div>
+
+        <div class="case-study__awards" style="margin-top: 1.75rem; max-width: 24rem;">
+          <span>Awards</span>
+          <p>Shortlist · Brand Experience, 2024</p>
+        </div>
+      </section>
+
+      <section class="case-study__section case-study__section--intro">
+        <div>
+          <h2>Project overview</h2>
+          <p>The assignment was to shape a more distinguished and emotionally resonant presence for Penti MyBra across its brand world and digital touchpoints. The work focused on bringing coherence to the visual language while giving the launch a stronger sense of confidence and purpose.</p>
+        </div>
+        <div>
+          <h2>The challenge</h2>
+          <p>The brief required a system that felt contemporary without losing warmth. The challenge was to create a visual language that could support both product storytelling and a broader brand narrative across digital, editorial, and retail moments.</p>
+        </div>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Strategy</h2>
+        <p>The strategy centered on building a brand experience that felt refined, direct, and human. Rather than adding complexity, the visual system was designed to create clarity through restraint, allowing the product and the narrative to lead.</p>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Brand identity system</h2>
+        <p>The identity system brought together a flexible typographic structure, a carefully calibrated color palette, and a set of expressive visual cues. Every layer of the system was designed to support a sense of confidence, softness, and modernity.</p>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Digital launch</h2>
+        <p>The digital launch translated the brand into an experience that felt coherent from first impression to conversion. Messaging, interface hierarchy, and content rhythm were all shaped to support the new positioning and create momentum around the release.</p>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Design process</h2>
+        <div class="case-study__process">
+          <div class="case-study__process-item">
+            <h3>01 / Insight</h3>
+            <p>Mapping the emotional and commercial expectations behind the launch.</p>
+          </div>
+          <div class="case-study__process-item">
+            <h3>02 / System</h3>
+            <p>Developing the identity framework and its applications across touchpoints.</p>
+          </div>
+          <div class="case-study__process-item">
+            <h3>03 / Refinement</h3>
+            <p>Testing the expression of the system in motion, layout, and digital content.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Key visuals</h2>
+        <div class="case-study__gallery">
+          <div class="case-study__visual"></div>
+          <div class="case-study__visual"></div>
+        </div>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Results</h2>
+        <p>The work helped establish a more cohesive and premium presence for the brand, giving the launch a stronger point of view and a more lasting impression across both digital and physical contexts.</p>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Awards</h2>
+        <p>Shortlisted for Brand Experience in 2024, with the project recognized for its clarity of narrative and consistency across channels.</p>
+      </section>
+
+      <section class="case-study__section">
+        <h2>Gallery</h2>
+        <div class="case-study__gallery">
+          <div class="case-study__visual"></div>
+          <div class="case-study__visual"></div>
+        </div>
+      </section>
+
+      <nav class="case-study__pagination" aria-label="Project navigation">
+        <a href="/" aria-label="Back to home">← Previous project</a>
+        <a href="/work/puhutv" aria-label="Next project">Next project →</a>
+      </nav>
+    </article>
+  </PageShell>
+</BaseLayout>

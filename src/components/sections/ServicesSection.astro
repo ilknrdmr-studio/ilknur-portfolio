@@ -1,0 +1,38 @@
+---
+import '../../styles/services.css';
+
+const services = [
+  {
+    title: 'Brand identity',
+    description: 'Visual systems shaped to feel coherent, enduring, and precise.'
+  },
+  {
+    title: 'Digital experience',
+    description: 'Interfaces and editorial environments designed with clarity and intent.'
+  },
+  {
+    title: 'UI design',
+    description: 'Thoughtful interface design grounded in structure, hierarchy, and usability.'
+  },
+  {
+    title: 'Art direction',
+    description: 'Visual storytelling across campaigns and digital platforms with a steady editorial sensibility.'
+  }
+];
+---
+
+<section class="services" aria-labelledby="services-title">
+  <div class="services__intro">
+    <p class="services__eyebrow">Selected focus</p>
+    <h2 id="services-title" class="services__title">A practice shaped through strategy, systems, and visual discipline.</h2>
+  </div>
+
+  <div class="services__list" role="list">
+    {services.map((service) => (
+      <article class="services__item" role="listitem">
+        <h3 class="services__name">{service.title}</h3>
+        <p class="services__description">{service.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

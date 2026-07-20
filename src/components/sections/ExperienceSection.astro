@@ -1,0 +1,38 @@
+---
+import '../../styles/experience.css';
+
+const highlights = [
+  {
+    title: 'Art direction',
+    description: 'Leading campaigns and digital narratives with a clear editorial point of view.'
+  },
+  {
+    title: 'Brand identity',
+    description: 'Building visual systems that support recognition, consistency, and cultural relevance.'
+  },
+  {
+    title: 'Digital experience',
+    description: 'Shaping journeys, interface patterns, and content structures with calm precision.'
+  },
+  {
+    title: 'UI design',
+    description: 'Designing interfaces that feel intuitive, considered, and aligned with the broader brand.'
+  }
+];
+---
+
+<section class="experience" aria-labelledby="experience-title">
+  <div class="experience__intro">
+    <p class="experience__eyebrow">Experience</p>
+    <h2 id="experience-title" class="experience__title">Work grounded in discipline, clarity, and a long view of how brands should feel.</h2>
+  </div>
+
+  <div class="experience__list" role="list">
+    {highlights.map((item) => (
+      <article class="experience__item" role="listitem">
+        <h3 class="experience__name">{item.title}</h3>
+        <p class="experience__description">{item.description}</p>
+      </article>
+    ))}
+  </div>
+</section>

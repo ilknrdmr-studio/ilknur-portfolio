@@ -1,0 +1,32 @@
+:root {
+  --color-bg: #f5f2eb;
+  --color-text: #171717;
+  --color-muted: #6b6b6b;
+  --color-border: #d8d2c7;
+  --color-surface: #fcfaf7;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4.5rem;
+  --space-8: 6rem;
+
+  --type-display: 3.5rem;
+  --type-h1: 2.5rem;
+  --type-h2: 1.75rem;
+  --type-body: 1rem;
+  --type-meta: 0.875rem;
+
+  --container-width: 78rem;
+  --content-width: 42rem;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+
+  --motion-fast: 160ms ease;
+  --motion-base: 240ms ease;
+  --motion-slow: 360ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}

@@ -1,0 +1,58 @@
+---
+import '../../styles/project-card.css';
+
+const { title, slug, category, summary, meta, tone = 'neutral', index = 0, year, client, role, awards } = Astro.props;
+const isReversed = index % 2 === 1;
+const href = slug ? `/work/${slug}` : '/work';
+---
+
+<a class="project-card__shell" href={href} aria-label={`View case study for ${title}`}>
+  <article class={`project-card project-card--${tone} ${isReversed ? 'project-card--reversed' : ''}`} data-reveal>
+    <div class="project-card__media" aria-hidden="true">
+      <div class="project-card__image"></div>
+    </div>
+    <div class="project-card__content">
+      <p class="project-card__category">{category}</p>
+      <h3 class="project-card__title">{title}</h3>
+      <p class="project-card__summary">{summary}</p>
+      <div class="project-card__meta-list">
+        <div class="project-card__meta-item">
+          <span class="project-card__meta-label">Year</span>
+          <span class="project-card__meta-value">{year || '—'}</span>
+        </div>
+        <div class="project-card__meta-item">
+          <span class="project-card__meta-label">Client</span>
+          <span class="project-card__meta-value">{client || title}</span>
+        </div>
+        <div class="project-card__meta-item">
+          <span class="project-card__meta-label">Role</span>
+          <span class="project-card__meta-value">{role || meta}</span>
+        </div>
+        {awards && (
+          <div class="project-card__meta-item">
+            <span class="project-card__meta-label">Awards</span>
+            <span class="project-card__meta-value">{awards}</span>
+          </div>
+        )}
+      </div>
+      <span class="project-card__link">
+        <span>View Case Study</span>
+        <span class="project-card__arrow">→</span>
+      </span>
+    </div>
+  </article>
+</a>
+
+<script>
+  const cards = document.querySelectorAll('[data-reveal]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach((card) => observer.observe(card));
+</script>

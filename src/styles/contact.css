@@ -1,0 +1,55 @@
+.contact {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.contact__content {
+  max-width: 54rem;
+}
+
+.contact__eyebrow {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.contact__title {
+  margin: 0;
+  font-size: clamp(1.7rem, 2.7vw, 2.45rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.contact__link {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.2rem;
+  transition: border-color var(--motion-base), color var(--motion-base), transform var(--motion-fast);
+}
+
+.contact__link:hover,
+.contact__link:focus-visible {
+  color: var(--color-muted);
+  border-color: var(--color-text);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .contact__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

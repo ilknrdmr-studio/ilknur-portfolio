@@ -1,0 +1,36 @@
+@import './tokens.css';
+@import './reset.css';
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+main {
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+section {
+  will-change: opacity, transform;
+}
+
+a {
+  color: inherit;
+  transition: color var(--motion-fast), opacity var(--motion-fast), transform var(--motion-fast);
+}
+
+::selection {
+  background: var(--color-border);
+  color: var(--color-text);
+}

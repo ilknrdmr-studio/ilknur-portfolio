@@ -1,0 +1,38 @@
+.selected-work {
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.selected-work__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 3.4vw, 3rem);
+}
+
+.selected-work__intro {
+  max-width: 48rem;
+  margin-bottom: 2.25rem;
+}
+
+.selected-work__eyebrow {
+  margin: 0 0 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.selected-work__title {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+@media (max-width: 900px) {
+  .selected-work__list {
+    gap: 1.5rem;
+  }
+}

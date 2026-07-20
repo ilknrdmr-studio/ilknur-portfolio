@@ -1,0 +1,154 @@
+:root {
+  --case-study-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.case-study {
+  padding: clamp(2rem, 5vw, 4rem) 0 5rem;
+}
+
+.case-study__hero {
+  padding: clamp(2rem, 4vw, 3rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case-study__eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-study__hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 0.95;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+  letter-spacing: -0.02em;
+}
+
+.case-study__hero p {
+  margin: 0;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+.case-study__meta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.case-study__meta-item,
+.case-study__awards {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-study__meta-item span,
+.case-study__awards span {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-study__section {
+  padding: clamp(2rem, 3vw, 3rem) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case-study__section--intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.case-study__section h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  line-height: 1.2;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.case-study__section p,
+.case-study__section li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.case-study__section ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.case-study__section li + li {
+  margin-top: 0.45rem;
+}
+
+.case-study__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0 clamp(2rem, 3vw, 2.5rem);
+}
+
+.case-study__visual {
+  min-height: 18rem;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.case-study__process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-study__process-item {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.case-study__process-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.case-study__pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2.5rem;
+}
+
+.case-study__pagination a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-study__pagination a:hover {
+  opacity: 0.72;
+}
+
+@media (max-width: 800px) {
+  .case-study__meta,
+  .case-study__section--intro,
+  .case-study__process,
+  .case-study__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .case-study__pagination {
+    flex-direction: column;
+  }
+}

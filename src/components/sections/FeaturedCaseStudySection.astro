@@ -1,0 +1,56 @@
+---
+import '../../styles/featured-case-study.css';
+import ProjectFeatureItem from '../content/ProjectFeatureItem.astro';
+
+const projects = [
+  {
+    title: 'Penti MyBra',
+    category: 'Brand identity · Digital launch',
+    description: 'A brand system and digital launch shaped for clarity and contemporary expression.',
+    image: '/images/projects/penti-mybra.jpg'
+  },
+  {
+    title: 'Vodafone',
+    category: 'Brand expression · Digital experience',
+    description: 'A digital presence shaped around confidence, structure, and ease of use.',
+    image: '/images/projects/vodafone.jpg'
+  },
+  {
+    title: 'Bosch',
+    category: 'Brand storytelling · Product communication',
+    description: 'Visual communication developed to present complex technology with calm precision.',
+    image: '/images/projects/bosch.jpg'
+  },
+  {
+    title: 'PuhuTV',
+    category: 'Product identity · UI design',
+    description: 'An interface system built for a large-scale content experience.',
+    image: '/images/projects/puhutv.jpg'
+  },
+  {
+    title: 'NTV Digital',
+    category: 'Editorial design · Content systems',
+    description: 'A structured digital environment balancing information, rhythm, and readability.',
+    image: '/images/projects/ntv-digital.jpg'
+  },
+  {
+    title: 'Nesquik',
+    category: 'Brand campaign · Visual direction',
+    description: 'Campaign work shaped with a direct visual approach and strong editorial control.',
+    image: '/images/projects/nesquik.jpg'
+  }
+];
+---
+
+<section class="featured-case-study" aria-labelledby="featured-case-study-title">
+  <div class="featured-case-study__intro">
+    <p class="featured-case-study__eyebrow">Featured case studies</p>
+    <h2 id="featured-case-study-title" class="featured-case-study__title">Selected work presented as clear, considered editorial stories.</h2>
+  </div>
+
+  <div class="featured-case-study__list" role="list">
+    {projects.map((project) => (
+      <ProjectFeatureItem project={project} />
+    ))}
+  </div>
+</section>
