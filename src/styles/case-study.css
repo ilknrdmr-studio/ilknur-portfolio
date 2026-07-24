@@ -33,11 +33,43 @@
   line-height: 1.7;
 }
 
+.case-study__hero--single {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.case-study__hero-copy {
+  max-width: 48rem;
+}
+
+.case-study__subtitle {
+  margin-top: 0.9rem;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.case-study__intro {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.case-study__intro p {
+  max-width: 40rem;
+  color: var(--color-text);
+}
+
 .case-study__meta {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.25rem;
   margin-top: 2rem;
+}
+
+.case-study__meta--hero {
+  margin-top: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .case-study__meta-item,
@@ -75,6 +107,42 @@
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
 }
 
+.case-study__overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.case-study__overview-copy {
+  max-width: 40rem;
+}
+
+.case-study__facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-study__fact {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-study__fact span {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-study__fact p {
+  margin: 0;
+  color: var(--color-text);
+}
+
 .case-study__section p,
 .case-study__section li {
   font-size: 1rem;
@@ -102,6 +170,105 @@
   min-height: 18rem;
   border: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.2);
+}
+
+.case-study__visual--hero {
+  min-height: 26rem;
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.case-study__challenge {
+  display: grid;
+  gap: 1rem;
+}
+
+.case-study__challenge-label {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-study__challenge-copy {
+  max-width: 42rem;
+  min-height: 4rem;
+}
+
+.case-study__visual--challenge {
+  min-height: 18rem;
+  width: 100%;
+}
+
+.case-study__creative-direction {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.case-study__creative-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+.case-study__creative-copy {
+  max-width: 30rem;
+  min-height: 6rem;
+}
+
+.case-study__creative-cards {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.case-study__creative-card {
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-study__creative-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.case-study__creative-card-copy {
+  min-height: 2rem;
+}
+
+.case-study__visual--landscape {
+  min-height: 20rem;
+  width: 100%;
+}
+
+.case-study__objectives {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.case-study__objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-study__objective {
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-study__objective h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+.case-study__objective-copy {
+  min-height: 4rem;
 }
 
 .case-study__process {
@@ -142,7 +309,12 @@
 
 @media (max-width: 800px) {
   .case-study__meta,
+  .case-study__meta--hero,
   .case-study__section--intro,
+  .case-study__overview,
+  .case-study__facts,
+  .case-study__objectives-grid,
+  .case-study__creative-layout,
   .case-study__process,
   .case-study__gallery {
     grid-template-columns: 1fr;
