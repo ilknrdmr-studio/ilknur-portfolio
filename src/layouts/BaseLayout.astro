@@ -1,8 +1,9 @@
 ---
 import '../styles/global.css';
+const { htmlClass = '', bodyClass = '' } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class={htmlClass}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,7 +11,7 @@ import '../styles/global.css';
     <meta name="description" content="Editorial portfolio for a creative director focused on brand, digital, and visual storytelling." />
     <title>Portfolio</title>
   </head>
-  <body>
+  <body class={bodyClass}>
     <slot />
   </body>
 </html>

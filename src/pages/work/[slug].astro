@@ -6,6 +6,7 @@ import '../../styles/case-study.css';
 export async function getStaticPaths() {
   return [
     { params: { slug: 'penti-mybra' } },
+    { params: { slug: 'bosch' } },
     { params: { slug: 'puhutv' } },
     { params: { slug: 'dogus-yayin-grubu' } }
   ];
@@ -13,11 +14,12 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const isPenti = slug === 'penti-mybra';
+const isBosch = slug === 'bosch';
 ---
 
-<BaseLayout>
+<BaseLayout htmlClass={isBosch ? 'page--bosch' : isPenti ? 'page--penti' : ''} bodyClass={isBosch ? 'body--bosch' : isPenti ? 'body--penti' : ''}>
   <PageShell>
-    <article class="case-study">
+    <article class={`case-study ${isBosch ? 'case-study--bosch' : ''} ${isPenti ? 'case-study--penti' : ''}`}>
       {isPenti ? (
         <>
           <section class="case-study__image-section">
@@ -56,8 +58,43 @@ const isPenti = slug === 'penti-mybra';
             <img src="/images/projects/penti-mybra:/images/09-results.jpg" alt="Penti MyBra results" class="case-study__image" />
           </section>
 
+        </>
+      ) : isBosch ? (
+        <>
           <section class="case-study__image-section">
-            <img src="/images/projects/penti-mybra:/images/10-closing.jpg" alt="Penti MyBra closing" class="case-study__image" />
+            <img src="/images/projects/bosch:/images/01-hero.jpg" alt="Bosch hero" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/02-overview.jpg" alt="Bosch overview" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/03-challenge.jpg" alt="Bosch challenge" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/04-Creative Concept .jpg" alt="Bosch creative concept" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/05-Key Visuals.jpg" alt="Bosch key visuals" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/06-Design System.jpg" alt="Bosch design system" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/07-Campaign Applications.jpg" alt="Bosch campaign applications" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/08-Campaign Close-Up.jpg" alt="Bosch campaign close-up" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/bosch:/images/09-Closing.jpg" alt="Bosch closing" class="case-study__image" />
           </section>
         </>
       ) : (
@@ -98,11 +135,56 @@ const isPenti = slug === 'penti-mybra';
             <img src="/images/projects/penti-mybra:/images/09-results.jpg" alt="Penti MyBra results" class="case-study__image" />
           </section>
 
-          <section class="case-study__image-section">
-            <img src="/images/projects/penti-mybra:/images/10-closing.jpg" alt="Penti MyBra closing" class="case-study__image" />
-          </section>
         </>
       )}
     </article>
   </PageShell>
 </BaseLayout>
+
+<style>
+  :global(html.page--bosch),
+  :global(body.body--bosch),
+  :global(html.page--bosch .page-shell),
+  :global(html.page--bosch main),
+  :global(html.page--bosch header),
+  :global(html.page--bosch footer),
+  :global(html.page--bosch .case-study) {
+    background: #000000;
+  }
+
+  :global(.case-study--bosch),
+  :global(.case-study--bosch section),
+  :global(.case-study--bosch .case-study__image-section) {
+    background: #000000;
+  }
+
+  :global(.case-study--bosch .case-study__image-section) {
+    padding: clamp(2rem, 4vw, 2.5rem) 0;
+  }
+
+  :global(.case-study--bosch .case-study__image-section:nth-of-type(3)) {
+    padding-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  :global(.case-study--bosch .case-study__image-section:nth-of-type(4)) {
+    padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  :global(.case-study--penti .case-study__image-section:nth-last-of-type(2)) {
+    padding-bottom: 0;
+  }
+
+  :global(.case-study--penti .case-study__image-section:last-of-type) {
+    padding-top: 0;
+  }
+
+  :global(html.page--penti),
+  :global(body.body--penti),
+  :global(html.page--penti .page-shell),
+  :global(html.page--penti main),
+  :global(html.page--penti header),
+  :global(html.page--penti footer),
+  :global(html.page--penti .case-study) {
+    background: #faf7f5;
+  }
+</style>
