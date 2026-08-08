@@ -8,6 +8,8 @@ export async function getStaticPaths() {
     { params: { slug: 'penti-mybra' } },
     { params: { slug: 'bosch' } },
     { params: { slug: 'puhutv' } },
+    { params: { slug: 'dyg-website' } },
+    { params: { slug: 'nesquik' } },
     { params: { slug: 'dogus-yayin-grubu' } }
   ];
 }
@@ -15,11 +17,14 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const isPenti = slug === 'penti-mybra';
 const isBosch = slug === 'bosch';
+const isPuhu = slug === 'puhutv';
+const isDyg = slug === 'dyg-website';
+const isNesquik = slug === 'nesquik';
 ---
 
-<BaseLayout htmlClass={isBosch ? 'page--bosch' : isPenti ? 'page--penti' : ''} bodyClass={isBosch ? 'body--bosch' : isPenti ? 'body--penti' : ''}>
+<BaseLayout htmlClass={isBosch ? 'page--bosch' : isPenti ? 'page--penti' : isPuhu ? 'page--puhu' : isDyg ? 'page--dyg' : isNesquik ? 'page--nesquik' : ''} bodyClass={isBosch ? 'body--bosch' : isPenti ? 'body--penti' : isPuhu ? 'body--puhu' : isDyg ? 'body--dyg' : isNesquik ? 'body--nesquik' : ''}>
   <PageShell>
-    <article class={`case-study ${isBosch ? 'case-study--bosch' : ''} ${isPenti ? 'case-study--penti' : ''}`}>
+    <article class={`case-study ${isBosch ? 'case-study--bosch' : ''} ${isPenti ? 'case-study--penti' : ''} ${isPuhu ? 'case-study--puhu' : ''} ${isDyg ? 'case-study--dyg' : ''} ${isNesquik ? 'case-study--nesquik' : ''}`}>
       {isPenti ? (
         <>
           <section class="case-study__image-section">
@@ -97,6 +102,124 @@ const isBosch = slug === 'bosch';
             <img src="/images/projects/bosch:/images/09-Closing.jpg" alt="Bosch closing" class="case-study__image" />
           </section>
         </>
+      ) : isDyg ? (
+        <>
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/01-hero.jpg" alt="DYG Website hero" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/02-overview.jpg" alt="DYG Website overview" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/03-challenge.jpg" alt="DYG Website challenge" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/04-solution.jpg" alt="DYG Website solution" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/05-information architecture.jpg" alt="DYG Website information architecture" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/06- homepage experience.jpg" alt="DYG Website homepage experience" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/07-responsive experience.jpg" alt="DYG Website responsive experience" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/08-desing system.jpg" alt="DYG Website design system" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/09-final experience.jpg" alt="DYG Website final experience" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/dyg:/images/10-closing.jpg" alt="DYG Website closing" class="case-study__image" />
+          </section>
+        </>
+      ) : isPuhu ? (
+        <>
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/01-hero.jpg" alt="PuhuTV hero" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/02-overview.jpg" alt="PuhuTV overview" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/03-challenge.jpg" alt="PuhuTV challenge" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/04-user journey.jpg" alt="PuhuTV user journey" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/05-content discovery.jpg" alt="PuhuTV content discovery" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/06-detail page.jpg" alt="PuhuTV detail page" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/07-player experience.jpg" alt="PuhuTV player experience" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/08-desing system.jpg" alt="PuhuTV design system" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/09-responsive experience.jpg" alt="PuhuTV responsive experience" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/puhu:/images/10-closing.jpg" alt="PuhuTV closing" class="case-study__image" />
+          </section>
+        </>
+      ) : isNesquik ? (
+        <>
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/01-hero.jpg" alt="Nesquik hero" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/02-overview.jpg" alt="Nesquik overview" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/03-challenge.jpg" alt="Nesquik challenge" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/04-ınsıght.jpg" alt="Nesquik insight" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/05-results.jpg" alt="Nesquik results" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/06-display system.jpg" alt="Nesquik display system" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/07-design system.jpg" alt="Nesquik design system" class="case-study__image" />
+          </section>
+
+          <section class="case-study__image-section">
+            <img src="/images/projects/nesquik:/images/08-closing.jpg" alt="Nesquik closing" class="case-study__image" />
+          </section>
+        </>
       ) : (
         <>
           <section class="case-study__image-section">
@@ -170,12 +293,38 @@ const isBosch = slug === 'bosch';
     padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
   }
 
+  :global(.case-study--puhu),
+  :global(.case-study--puhu section),
+  :global(.case-study--puhu .case-study__image-section) {
+    background: #000000;
+  }
+
+  :global(.case-study--dyg),
+  :global(.case-study--dyg section),
+  :global(.case-study--dyg .case-study__image-section) {
+    background: #000000;
+  }
+
+  :global(.case-study--dyg .case-study__image-section) {
+    padding: clamp(2rem, 4vw, 2.5rem) 0;
+  }
+
   :global(.case-study--penti .case-study__image-section:nth-last-of-type(2)) {
     padding-bottom: 0;
   }
 
   :global(.case-study--penti .case-study__image-section:last-of-type) {
     padding-top: 0;
+  }
+
+  :global(html.page--dyg),
+  :global(body.body--dyg),
+  :global(html.page--dyg .page-shell),
+  :global(html.page--dyg main),
+  :global(html.page--dyg header),
+  :global(html.page--dyg footer),
+  :global(html.page--dyg .case-study) {
+    background: #000000;
   }
 
   :global(html.page--penti),
@@ -186,5 +335,15 @@ const isBosch = slug === 'bosch';
   :global(html.page--penti footer),
   :global(html.page--penti .case-study) {
     background: #faf7f5;
+  }
+
+  :global(html.page--puhu),
+  :global(body.body--puhu),
+  :global(html.page--puhu .page-shell),
+  :global(html.page--puhu main),
+  :global(html.page--puhu header),
+  :global(html.page--puhu footer),
+  :global(html.page--puhu .case-study) {
+    background: #000000;
   }
 </style>

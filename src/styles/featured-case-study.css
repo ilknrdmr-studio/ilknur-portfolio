@@ -1,10 +1,15 @@
 .featured-case-study {
-  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(2rem, 5vw, 4rem);
+}
+
+.featured-case-study__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  width: 100%;
 }
 
 .featured-case-study__intro {
-  max-width: 46rem;
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.5rem;
 }
 
 .featured-case-study__eyebrow {
@@ -18,7 +23,7 @@
 
 .featured-case-study__title {
   margin: 0;
-  font-size: clamp(1.65rem, 2.5vw, 2.2rem);
+  font-size: clamp(1.9rem, 2.75vw, 2.6rem);
   line-height: 1.18;
   letter-spacing: -0.02em;
   font-weight: 500;
@@ -27,50 +32,51 @@
 
 .featured-case-study__list {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .featured-case-study__item {
   display: grid;
-  grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1fr);
-  gap: 2rem;
-  align-items: start;
-  padding: 1.5rem 0 2rem;
-  border-top: 1px solid var(--color-border);
+  gap: 1.1rem;
+  padding: 0;
   opacity: 0;
   transform: translateY(18px);
   animation: case-study-reveal 760ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  text-decoration: none;
+  color: inherit;
 }
 
 .featured-case-study__visual {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
+  width: 100%;
+  overflow: visible;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .featured-case-study__visual img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
-  transition: transform var(--motion-base);
 }
 
-.featured-case-study__item:hover .featured-case-study__visual img {
-  transform: scale(1.03);
+.featured-case-study__feature-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1.5rem;
 }
 
-.featured-case-study__content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  padding-top: 0.3rem;
+.featured-case-study__text {
+  display: grid;
+  gap: 1rem;
 }
 
 .featured-case-study__category {
   margin: 0;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-muted);
@@ -78,8 +84,8 @@
 
 .featured-case-study__project-title {
   margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.25;
+  font-size: clamp(2.3rem, 4vw, 3rem);
+  line-height: 1.08;
   font-weight: 500;
   font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
   transition: transform var(--motion-fast);
@@ -91,41 +97,29 @@
 
 .featured-case-study__description {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--color-muted);
-  max-width: 36rem;
 }
 
-.featured-case-study__link {
-  margin-top: 0.25rem;
+.featured-case-study__action {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  width: fit-content;
-  font-size: 0.84rem;
-  letter-spacing: 0.12em;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text);
   text-decoration: none;
-  position: relative;
+  opacity: 0.95;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.15rem;
 }
 
-.featured-case-study__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -0.2rem;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform var(--motion-base);
-}
-
-.featured-case-study__item:hover .featured-case-study__link::after {
-  transform: scaleX(1);
+.featured-case-study__divider {
+  margin: 2.5rem 0 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
 }
 
 @keyframes case-study-reveal {
@@ -140,18 +134,23 @@
 }
 
 @media (max-width: 900px) {
-  .featured-case-study__item {
+  .featured-case-study {
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .featured-case-study__feature-info {
     grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1.25rem 0 1.75rem;
+  }
+
+  .featured-case-study__action {
+    justify-self: start;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .featured-case-study__item,
   .featured-case-study__visual img,
-  .featured-case-study__project-title,
-  .featured-case-study__link::after {
+  .featured-case-study__project-title {
     animation: none !important;
     transition: none !important;
   }

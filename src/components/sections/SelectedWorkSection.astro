@@ -1,75 +1,35 @@
 ---
 import ProjectCard from '../content/ProjectCard.astro';
+import { projects } from '../../data/projects';
 import '../../styles/selected-work.css';
 
-const projects = [
-  {
-    title: 'Penti MyBra',
-    slug: 'penti-mybra',
-    category: 'Brand identity',
-    summary: 'A brand system and digital launch built around clarity and consistency.',
-    meta: 'Identity · Digital experience',
-    tone: 'warm',
-    year: '—',
-    client: 'Penti MyBra',
-    role: 'Art Direction · Brand Identity'
-  },
-  {
-    title: 'Bosch',
-    slug: 'bosch',
-    category: 'Brand storytelling',
-    summary: 'Visual communication developed to present complex technology with calm precision.',
-    meta: 'Brand · Product communication',
-    tone: 'neutral',
-    year: '—',
-    client: 'Bosch',
-    role: 'Brand Identity · Product Communication'
-  },
-  {
-    title: 'PuhuTV',
-    slug: 'puhutv',
-    category: 'Digital experience',
-    summary: 'An interface language developed for a broad content experience.',
-    meta: 'UI · Product design',
-    tone: 'cool',
-    year: '—',
-    client: 'PuhuTV',
-    role: 'UI Design · Digital Experience'
-  },
-  {
-    title: 'Doğuş Yayın Grubu',
-    slug: 'dogus-yayin-grubu',
-    category: 'Editorial direction',
-    summary: 'Visual systems and digital storytelling shaped for a complex media environment.',
-    meta: 'Brand · Editorial',
-    tone: 'neutral',
-    year: '—',
-    client: 'Doğuş Yayın Grubu',
-    role: 'Art Direction · Editorial Design'
-  }
-];
+const featuredProject = projects.find((project) => project.featured);
+const displayedProjects = featuredProject ? projects.filter((project) => project.slug !== featuredProject.slug && project.slug !== 'dogus-yayin-grubu') : projects.filter((project) => project.slug !== 'dogus-yayin-grubu');
 ---
 
 <section class="selected-work" aria-labelledby="selected-work-title">
-  <div class="selected-work__intro">
-    <p class="selected-work__eyebrow">Selected work</p>
-    <h2 id="selected-work-title" class="selected-work__title">A focused body of work shaped by clarity, craft, and long-term thinking.</h2>
-  </div>
+  <div class="selected-work__inner">
+    <div class="selected-work__intro">
+      <p class="selected-work__eyebrow">Selected work</p>
+      <h2 id="selected-work-title" class="selected-work__title">A focused body of work shaped by clarity, craft, and long-term thinking.</h2>
+    </div>
 
-  <div class="selected-work__list">
-    {projects.map((project, index) => (
-      <ProjectCard
-        title={project.title}
-        slug={project.slug}
-        category={project.category}
-        summary={project.summary}
-        meta={project.meta}
-        tone={project.tone}
-        index={index}
-        year={project.year}
-        client={project.client}
-        role={project.role}
-      />
-    ))}
+    <div class="selected-work__list">
+      {displayedProjects.map((project, index) => (
+        <ProjectCard
+          title={project.title}
+          slug={project.slug}
+          category={project.category}
+          description={project.description}
+          meta={project.meta}
+          tone={project.tone}
+          index={index}
+          year={project.year}
+          client={project.client}
+          role={project.role}
+          image={project.image}
+        />
+      ))}
+    </div>
   </div>
 </section>
